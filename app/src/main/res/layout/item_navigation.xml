@@ -4,21 +4,9 @@
     android:layout_height="100dp"
     android:layout_width="match_parent"
     android:orientation="horizontal"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <ImageView
-        android:id="@+id/imgIcon"
-        android:layout_width="74dp"
-        android:layout_height="74dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginBottom="15dp"
-        app:srcCompat="@drawable/icon_test" />
 
     <TextView
         android:id="@+id/txtFeature"
@@ -26,9 +14,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginLeft="66dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="-2dp"
         android:text="Trang Chủ"
-        tools:textSize="30sp" />
+        tools:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-3dp"
+        app:srcCompat="@drawable/icon_test" />
 </RelativeLayout>

@@ -23,8 +23,10 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.appbanhang.R;
 import com.example.appbanhang.adapter.CategoryAdapter;
+import com.example.appbanhang.adapter.ItemNavigationAdapter;
 import com.example.appbanhang.adapter.ProductAdapter;
 import com.example.appbanhang.model.Category;
+import com.example.appbanhang.model.ItemNavigation;
 import com.example.appbanhang.model.Product;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
@@ -42,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
     GridView gdvListProduct;
     ProductAdapter adapter;
     ArrayList<Product> ProductArrayList;
+
+    ArrayList<ItemNavigation> arrayList;
+    ItemNavigationAdapter naAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +55,24 @@ public class MainActivity extends AppCompatActivity {
         anhXa();
         actionToolBar();
         actionViewLipper();
+        actionMenu();
         getDuLieuLoaisp();
         Init();
         SetUp();
         SetClick();
 
+    }
+
+    private void actionMenu() {
+        arrayList = new ArrayList<>();
+        arrayList.add(new ItemNavigation( "Trang chủ" , R.drawable.icon_test));
+        arrayList.add(new ItemNavigation( "Cài đặt" , R.drawable.icon_test));
+        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
+        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
+        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
+        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
+        naAdapter= new ItemNavigationAdapter(this, R.layout.item_navigation, arrayList);
+        listView.setAdapter(naAdapter);
     }
 
     @Override
@@ -71,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
         ProductArrayList.add(new Product("Apple Macbook Air","40000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
         ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
         ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
+        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
+        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
+        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
         ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
         ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
         ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
