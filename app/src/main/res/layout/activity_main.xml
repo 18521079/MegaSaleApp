@@ -1,97 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Use DrawerLayout as root container for activity -->
-<LinearLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.drawerlayout.widget.DrawerLayout
-    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#5F70CF"
-            app:title="Trang chủ">
-
-
-        </androidx.appcompat.widget.Toolbar>
-        <ViewFlipper
-            android:id="@+id/viewlipper"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"></ViewFlipper>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#A4BFD5"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tìm kiếm nhiều nhất"
-                android:textColor="#EA0955"
-                android:textSize="18sp"></TextView>
-            <GridView
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#5F70CF"
+                app:title="Trang chủ">
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <ViewFlipper
+                android:id="@+id/viewlipper"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#F5F5F6"></ViewFlipper>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:numColumns="3"
-                android:id="@+id/gdvListprouct">
+                android:background="#A4BFD5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sản phẩm bán chạy nhất"
+                    android:textColor="#EA0955"
+                    android:textSize="18sp"></TextView>
+
+                <GridView
+                    android:id="@+id/gdvListprouct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="3">
 
 
+                </GridView>
+            </LinearLayout>
 
-            </GridView>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true">
-        <LinearLayout
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                app:srcCompat="@drawable/logo"></ImageView>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/lv_item"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/logo"></ImageView>
 
-    </com.google.android.material.navigation.NavigationView>
+                <ListView
+                    android:id="@+id/lv_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </com.google.android.material.navigation.NavigationView>
 
 
-</androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </LinearLayout>

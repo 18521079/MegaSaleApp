@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -60,17 +62,50 @@ public class MainActivity extends AppCompatActivity {
         Init();
         SetUp();
         SetClick();
+        CatchOnItemListView();
 
+    }
+
+    private void CatchOnItemListView() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+            switch (i)
+            {
+                case 0:
+                    Intent phoneIntent = new Intent(MainActivity.this, PhoneActivity.class);
+                    startActivity( phoneIntent);
+                    break;
+                case 1:
+                    Intent LapTopIntent = new Intent(MainActivity.this, LaptopActivity.class);
+                    startActivity(LapTopIntent);
+                    break;
+                case 2:
+                    Intent TabletIntent = new Intent(MainActivity.this, TabletActivity.class);
+                    startActivity(TabletIntent);
+                    break;
+                case 3:
+                    Intent AccessoriesIntent = new Intent(MainActivity.this, AccessoriesActivity.class);
+                    startActivity(AccessoriesIntent);
+                    break;
+                case 4:
+                    Intent WatchIntent = new Intent(MainActivity.this, WatchActivity.class);
+                    startActivity(WatchIntent);
+                    break;
+
+
+            }
+            }
+        });
     }
 
     private void actionMenu() {
         arrayList = new ArrayList<>();
-        arrayList.add(new ItemNavigation( "Trang chủ" , R.drawable.icon_test));
-        arrayList.add(new ItemNavigation( "Cài đặt" , R.drawable.icon_test));
-        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
-        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
-        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
-        arrayList.add(new ItemNavigation( "aaaaaa" , R.drawable.icon_test));
+        arrayList.add(new ItemNavigation( "Điện thoại" , R.drawable.phone));
+        arrayList.add(new ItemNavigation( "Laptop" , R.drawable.laptop));
+        arrayList.add(new ItemNavigation( "Tablet" , R.drawable.tablet));
+        arrayList.add(new ItemNavigation( "Phụ kiện" , R.drawable.accessories));
+        arrayList.add(new ItemNavigation( "Đồng hồ" , R.drawable.watch));
         naAdapter= new ItemNavigationAdapter(this, R.layout.item_navigation, arrayList);
         listView.setAdapter(naAdapter);
     }
@@ -116,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> mangQuangCao = new ArrayList<>();
         mangQuangCao.add("https://images.vov.vn/Uploaded/ed7piNlL54cRb7FgmUmzw/2017_12_06/quang_ba_SGQG.jpg");
         mangQuangCao.add("https://www.chili.vn/blogs/wp-content/uploads/2018/01/tao-cau-chuyen-thuong-hieu-2-e1516173732533.jpg");
-        mangQuangCao.add("https://wikimarketing.vn/wp-content/uploads/2019/03/david-beckham.jpg");
+        mangQuangCao.add("https://cdn.tgdd.vn/Files/2017/08/13/1012657/j7_pro_isaac_800x450.jpg");
         mangQuangCao.add("https://genk.mediacdn.vn/2016/hinh1-1476153949150-crop-1476153955413-1476174237771.jpg");
         mangQuangCao.add("https://genk.mediacdn.vn/2016/hinh1-1476153949150-crop-1476153955413-1476174237771.jpg");
         for (int i=0; i<mangQuangCao.size(); i++)

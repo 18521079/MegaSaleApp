@@ -9,19 +9,19 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" ></item>
     <item
-        android:id="@+id/app_bar_search"
+        android:id="@+id/app_help"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Help"
+        android:title="Log In"
         app:actionViewClass="android.widget.SearchView" />
     <item
-        android:id="@+id/app_bar_search"
+        android:id="@+id/app_logout"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Logout"
+        android:title="Log Out"
         app:actionViewClass="android.widget.SearchView" />
     <item
-        android:id="@+id/app_bar_search"
-        android:icon="@drawable/cart"
-        android:title="Logout"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
+
+        android:id="@+id/app_cart"
+        android:icon="@drawable/shopping_cart"
+        android:title="Cart"
+        app:showAsAction="ifRoom" />
 </menu>
