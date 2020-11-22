@@ -21,7 +21,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#5F70CF"
-                app:title="Trang chủ">
+                app:titleTextColor="#FFFFFF"
+                app:title="Shopeasy">
+
 
 
             </androidx.appcompat.widget.Toolbar>
@@ -35,20 +37,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#A4BFD5"
+                android:background="#8C9AE8"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sản phẩm bán chạy nhất"
-                    android:textColor="#EA0955"
+                    android:text="Best Selling"
+                    android:textColor="#F3F2F2"
                     android:textSize="18sp"></TextView>
 
                 <GridView
                     android:id="@+id/gdvListprouct"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="215dp"
+                    android:numColumns="3">
+
+
+                </GridView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trending"
+                    android:textColor="#F4EFF1"
+                    android:textSize="18sp"></TextView>
+
+                <GridView
+                    android:id="@+id/gdvTrendprouct"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
                     android:numColumns="3">
 
 
@@ -82,10 +100,10 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="204dp"
+                    android:layout_marginTop="13dp"
                     android:gravity="center"
-                    app:srcCompat="@drawable/logo"></ImageView>
+                    app:srcCompat="@drawable/logo_new"></ImageView>
 
                 <ListView
                     android:id="@+id/lv_item"

@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Category> mangloaisp;
     CategoryAdapter loaispAdapter;
     GridView gdvListProduct;
+    GridView gdvTrendProduct;
     ProductAdapter adapter;
     ArrayList<Product> ProductArrayList;
 
@@ -73,12 +74,12 @@ public class MainActivity extends AppCompatActivity {
             switch (i)
             {
                 case 0:
-                    Intent phoneIntent = new Intent(MainActivity.this, PhoneActivity.class);
+                    Intent phoneIntent = new Intent(MainActivity.this, MainActivity.class);
                     startActivity( phoneIntent);
                     break;
                 case 1:
-                    Intent LapTopIntent = new Intent(MainActivity.this, LaptopActivity.class);
-                    startActivity(LapTopIntent);
+                    Intent NewProductIntent = new Intent(MainActivity.this, NewProductActivity.class);
+                    startActivity(NewProductIntent);
                     break;
                 case 2:
                     Intent TabletIntent = new Intent(MainActivity.this, TabletActivity.class);
@@ -101,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void actionMenu() {
         arrayList = new ArrayList<>();
-        arrayList.add(new ItemNavigation( "Điện thoại" , R.drawable.phone));
-        arrayList.add(new ItemNavigation( "Laptop" , R.drawable.laptop));
-        arrayList.add(new ItemNavigation( "Tablet" , R.drawable.tablet));
-        arrayList.add(new ItemNavigation( "Phụ kiện" , R.drawable.accessories));
-        arrayList.add(new ItemNavigation( "Đồng hồ" , R.drawable.watch));
+        arrayList.add(new ItemNavigation( "Home" , R.drawable.icon_home));
+        arrayList.add(new ItemNavigation( "New Product" , R.drawable.icon_new_product));
+        arrayList.add(new ItemNavigation( "My Account" , R.drawable.icon_account));
+        arrayList.add(new ItemNavigation( "Wist List" , R.drawable.icon_heart));
+        arrayList.add(new ItemNavigation( "Category" , R.drawable.icon_category));
         naAdapter= new ItemNavigationAdapter(this, R.layout.item_navigation, arrayList);
         listView.setAdapter(naAdapter);
     }
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
     private void SetUp()
     {
         gdvListProduct.setAdapter(adapter);
+        gdvTrendProduct.setAdapter(adapter);
     }
     private void SetClick()
     {
@@ -194,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
         loaispAdapter= new CategoryAdapter(getApplicationContext(), mangloaisp);
         listView.setAdapter(loaispAdapter);
         gdvListProduct=findViewById(R.id.gdvListprouct);
+        gdvTrendProduct=findViewById(R.id.gdvTrendprouct);
 
 
     }
