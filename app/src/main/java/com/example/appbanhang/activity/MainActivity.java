@@ -1,5 +1,6 @@
 package com.example.appbanhang.activity;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.ViewFlipper;
 
 import com.android.volley.RequestQueue;
@@ -64,7 +67,19 @@ public class MainActivity extends AppCompatActivity {
         SetUp();
         SetClick();
         CatchOnItemListView();
+        CatchOnItemGirdProduct();
 
+
+    }
+
+    private void CatchOnItemGirdProduct() {
+        gdvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Intent phoneIntent = new Intent(getApplicationContext(), DetailProductActivity.class);
+                startActivity(phoneIntent);
+            }
+        });
     }
 
     private void CatchOnItemListView() {
@@ -105,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new ItemNavigation( "Home" , R.drawable.icon_home));
         arrayList.add(new ItemNavigation( "New Product" , R.drawable.icon_new_product));
         arrayList.add(new ItemNavigation( "My Account" , R.drawable.icon_account));
-        arrayList.add(new ItemNavigation( "Wist List" , R.drawable.icon_heart));
+        arrayList.add(new ItemNavigation( "Wish List" , R.drawable.icon_heart));
         arrayList.add(new ItemNavigation( "Category" , R.drawable.icon_category));
         naAdapter= new ItemNavigationAdapter(this, R.layout.item_navigation, arrayList);
         listView.setAdapter(naAdapter);
@@ -115,7 +130,40 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main_menu,menu);
+        MenuItem menuItem= menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                adapter.SortProduct(s);
+                adapter.getFilter().filter(s);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id= item.getItemId();
+        if(id==R.id.app_cart)
+        {
+            Intent AccessoriesIntent = new Intent(MainActivity.this, CartActivity.class);
+            startActivity(AccessoriesIntent);
+        }
+        else
+        {
+            Intent AccessoriesIntent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(AccessoriesIntent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void Init()
@@ -195,8 +243,8 @@ public class MainActivity extends AppCompatActivity {
         mangloaisp = new ArrayList<>();
         loaispAdapter= new CategoryAdapter(getApplicationContext(), mangloaisp);
         listView.setAdapter(loaispAdapter);
-        gdvListProduct=findViewById(R.id.gdvListprouct);
-        gdvTrendProduct=findViewById(R.id.gdvTrendprouct);
+        gdvListProduct=findViewById(R.id.gdvListproduct);
+        gdvTrendProduct=findViewById(R.id.gdvTrendproduct);
 
 
     }

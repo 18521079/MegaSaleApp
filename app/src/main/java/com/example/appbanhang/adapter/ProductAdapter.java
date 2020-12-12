@@ -28,6 +28,22 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         this.ct=context;
         this.arr= new ArrayList<>(objects);
     }
+    public  void SortProduct(String s)
+    {
+        s=s.toUpperCase();
+        int k=0;
+        for(int i=0; i<arr.size(); i++)
+        {
+            Product product= arr.get(i);
+            String name = product.getName().toUpperCase();
+            if(name.indexOf(s)>=0)
+            {
+                arr.set(i,arr.get(k));
+                arr.set(k, product);
+                k++;
+            }
+        }
+    }
 
     @NonNull
     @Override

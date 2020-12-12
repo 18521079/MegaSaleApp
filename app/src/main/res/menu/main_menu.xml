@@ -9,7 +9,7 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" ></item>
     <item
-        android:id="@+id/app_help"
+        android:id="@+id/app_Login"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Log In"
         app:actionViewClass="android.widget.SearchView" />

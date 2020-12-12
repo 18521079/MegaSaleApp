@@ -48,7 +48,7 @@
                     android:textSize="18sp"></TextView>
 
                 <GridView
-                    android:id="@+id/gdvListprouct"
+                    android:id="@+id/gdvListproduct"
                     android:layout_width="match_parent"
                     android:layout_height="215dp"
                     android:numColumns="3">
@@ -64,7 +64,7 @@
                     android:textSize="18sp"></TextView>
 
                 <GridView
-                    android:id="@+id/gdvTrendprouct"
+                    android:id="@+id/gdvTrendproduct"
                     android:layout_width="match_parent"
                     android:layout_height="124dp"
                     android:numColumns="3">
