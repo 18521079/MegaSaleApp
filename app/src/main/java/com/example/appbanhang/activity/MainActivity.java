@@ -157,10 +157,15 @@ public class MainActivity extends AppCompatActivity {
             Intent AccessoriesIntent = new Intent(MainActivity.this, CartActivity.class);
             startActivity(AccessoriesIntent);
         }
+        else if(id==R.id.app_Login)
+        {
+            Intent login = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(login);
+        }
         else
         {
-            Intent AccessoriesIntent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(AccessoriesIntent);
+            Intent signup = new Intent(MainActivity.this, SignUpActivity.class);
+            startActivity(signup);
         }
 
         return super.onOptionsItemSelected(item);
