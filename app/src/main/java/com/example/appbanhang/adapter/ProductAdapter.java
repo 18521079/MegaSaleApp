@@ -51,7 +51,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         if(convertView==null)
         {
             LayoutInflater inflater = (LayoutInflater) ct.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_product, null);
+            convertView = inflater.inflate(R.layout.newitem_product, null);
         }
         if(arr.size()>0)
         {

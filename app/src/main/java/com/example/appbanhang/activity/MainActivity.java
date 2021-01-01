@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Category> mangloaisp;
     CategoryAdapter loaispAdapter;
     GridView gdvListProduct;
-    GridView gdvTrendProduct;
     ProductAdapter adapter;
     ArrayList<Product> ProductArrayList;
 
@@ -191,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
     private void SetUp()
     {
         gdvListProduct.setAdapter(adapter);
-        gdvTrendProduct.setAdapter(adapter);
+
     }
     private void SetClick()
     {
@@ -217,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
             image.setScaleType(image.getScaleType().FIT_XY);
             viewFlipper.addView(image);
         }
-        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setFlipInterval(4000);
         viewFlipper.setAutoStart(true);
         Animation animation_slide_in = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_in_right);
         Animation animation_slide_out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_out_right);
@@ -249,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         loaispAdapter= new CategoryAdapter(getApplicationContext(), mangloaisp);
         listView.setAdapter(loaispAdapter);
         gdvListProduct=findViewById(R.id.gdvListproduct);
-        gdvTrendProduct=findViewById(R.id.gdvTrendproduct);
+
 
 
     }

@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imgProductImage"
+                android:id="@+id/imgProduct"
                 android:src="@drawable/newphone"
                 android:layout_width="140dp"
                 android:layout_height="150dp"
@@ -35,7 +35,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtProductName"
+                    android:id="@+id/txtNameProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -46,7 +46,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/txtProductPrice"
+                    android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

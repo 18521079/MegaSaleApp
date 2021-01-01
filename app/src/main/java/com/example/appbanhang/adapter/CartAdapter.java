@@ -13,12 +13,10 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.appbanhang.R;
-import com.example.appbanhang.activity.CartActivity;
 import com.example.appbanhang.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class CartAdapter extends ArrayAdapter<Product> {
     private Context ct;
@@ -42,9 +40,9 @@ public class CartAdapter extends ArrayAdapter<Product> {
         if(arr.size()>0)
         {
             Product product = this.arr.get(position);
-            TextView name = convertView.findViewById(R.id.txtProductName);
-            TextView price = convertView.findViewById(R.id.txtProductPrice);
-            ImageView imgProduct = convertView.findViewById(R.id.imgProductImage);
+            TextView name = convertView.findViewById(R.id.txtNameProduct);
+            TextView price = convertView.findViewById(R.id.txtPrice);
+            ImageView imgProduct = convertView.findViewById(R.id.imgProduct);
             name.setText(product.getName());
             price.setText(product.getPrice());
             Glide.with(this.ct).load(product.getImageLink()).into(imgProduct);
