@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
         mangQuangCao.add("https://www.chili.vn/blogs/wp-content/uploads/2018/01/tao-cau-chuyen-thuong-hieu-2-e1516173732533.jpg");
         mangQuangCao.add("https://cdn.tgdd.vn/Files/2017/08/13/1012657/j7_pro_isaac_800x450.jpg");
         mangQuangCao.add("https://genk.mediacdn.vn/2016/hinh1-1476153949150-crop-1476153955413-1476174237771.jpg");
-        mangQuangCao.add("https://genk.mediacdn.vn/2016/hinh1-1476153949150-crop-1476153955413-1476174237771.jpg");
+        mangQuangCao.add("https://cellphones.com.vn/sforum/wp-content/uploads/2018/08/maxresdefault-3-600x338.jpg");
         for (int i=0; i<mangQuangCao.size(); i++)
         {
             ImageView image= new ImageView(getApplicationContext());

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="150dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="400dp"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    android:layout_height="150dp"
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
@@ -22,12 +23,11 @@
 
             <ImageView
                 android:id="@+id/imgProduct"
-                android:src="@drawable/newphone"
                 android:layout_width="140dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                />
+                android:src="@drawable/newphone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,16 +44,48 @@
                     android:text="samsung_galaxy_a70"
                     android:textColor="#2C576A"
                     android:textSize="20sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="$53997"
-                    android:textColor="#03A9F4"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/txtPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-10dp"
+                            android:layout_marginTop="15dp"
+
+                            android:layout_marginBottom="10dp"
+                            android:text="$53997"
+                            android:textColor="#03A9F4"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="7dp"
+                            android:text="Qty:"
+                            android:textColor="#FF9800"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginBottom="-13dp"
+                            android:text="1"
+                            android:textColor="#FF9800"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
