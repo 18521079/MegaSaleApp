@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(TabletIntent);
                     break;
                 case 3:
-                    Intent AccessoriesIntent = new Intent(MainActivity.this, AccessoriesActivity.class);
+                    Intent AccessoriesIntent = new Intent(MainActivity.this, WishListActivity.class);
                     startActivity(AccessoriesIntent);
                     break;
                 case 4:
