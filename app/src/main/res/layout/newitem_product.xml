@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="free_shipping"
+                android:text="free shipping"
                 android:textColor="#E3BF55"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -84,13 +84,13 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <Button
+                <TextView
                     android:id="@+id/addToCart"
                     android:layout_width="136dp"
                     android:layout_height="match_parent"
                     android:background="#4CAF50"
                     android:gravity="center"
-                    android:text="add to cart"
+                    android:text="Add to cart"
                     android:textColor="#FFFFFF"
                     android:textSize="13sp" />
 

@@ -2,60 +2,112 @@
 <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
-        android:layout_width="150dp"
-        android:layout_height="110dp"
-        android:background="#F5F7F8">
+        android:layout_width="175dp"
+        android:layout_height="370dp"
+      >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="175dp"
+            android:layout_height="370dp"
+            android:background="#1E1C1C"
+            card_view:cardCornerRadius="5dp"
+            card_view:cardElevation="1dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:elevation="1dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imgFavourite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                app:srcCompat="@drawable/emptyheart" />
 
         <ImageView
             android:id="@+id/imgProduct"
-            android:layout_width="114dp"
-            android:layout_height="109dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="8dp"
-
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            app:srcCompat="@drawable/b" />
+            android:layout_width="150dp"
+            android:layout_height="104dp"
+            android:layout_gravity="center"
+             />
 
         <TextView
             android:id="@+id/txtNameProduct"
-            android:layout_width="123dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginBottom="18dp"
-            android:text="Apple Macbook Air"
-            android:textColor="#FDFCFC"
-            android:textSize="12sp" />
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Iphone 11"
+            android:textColor="#6CBBDF"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="90dp"
-            android:text="34000000Đ"
-            android:textColor="#2196F3"
-            android:textSize="12sp" />
+            android:layout_marginTop="10dp"
+            android:text="$800"
+            android:textColor="#191515"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="free_shipping"
+            android:textColor="#E3BF55"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#8347EC"
+                android:padding="5dp"
+                android:text="fulfilled by Shopeasy"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="1dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/addToCart"
+                    android:layout_width="136dp"
+                    android:layout_height="match_parent"
+                    android:background="#4CAF50"
+                    android:gravity="center"
+                    android:text="add to cart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/imgCart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="add_to_cart"
+                    card_view:srcCompat="@drawable/cart" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
 

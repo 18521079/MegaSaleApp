@@ -3,7 +3,10 @@ package com.example.appbanhang.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.appbanhang.R;
@@ -29,6 +32,28 @@ public class CartActivity extends AppCompatActivity {
         Init();
         actionToolBar();
         SetUp();
+        CatchOnItemGirdProduct();
+        CatchOnItemGirdProduct2();
+    }
+
+    private void CatchOnItemGirdProduct2() {
+        gdvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent click = new Intent(getApplicationContext(), DetailProductActivity.class);
+                startActivity(click);
+            }
+        });
+    }
+
+    private void CatchOnItemGirdProduct() {
+        gdvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Intent phoneIntent = new Intent(getApplicationContext(), DetailProductActivity.class);
+                startActivity(phoneIntent);
+            }
+        });
     }
 
     private void SetUp() {
