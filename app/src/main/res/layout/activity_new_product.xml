@@ -20,21 +20,24 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="233dp"
+        android:layout_height="234dp"
         app:srcCompat="@drawable/img" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#1DA1F2"
         android:text="New Products"
-        android:textColor="#2196F3"
+        android:textColor="#E3E8EC"
         android:textSize="18sp" />
+
     <GridView
+        android:id="@+id/gdvListprouct"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2"
-        android:id="@+id/gdvListprouct">
+        android:background="#1DA1F2"
+        android:numColumns="2">
 
 
     </GridView>

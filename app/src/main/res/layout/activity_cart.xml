@@ -36,18 +36,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="7dp"
             android:text="Total Price:"
-            android:textColor="#FF9800"
+            android:textColor="#287DA3"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="7dp"
             android:text="$2000.34"
@@ -58,13 +58,12 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="356dp"
+        android:layout_width="361dp"
         android:layout_height="56dp"
-        android:background="@drawable/ooo"
-        android:text="Payments"
-        android:textColor="#EEF3F6"
-        android:gravity="center"
         android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Payment"
+        android:textColor="#187EBC"
         android:textSize="20sp"></Button>
 
 
