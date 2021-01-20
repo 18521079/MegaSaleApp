@@ -109,14 +109,12 @@
                         android:layout_margin="20dp"
 
                         card_view:srcCompat="@drawable/icon_heart" />
-
-                    <ImageView
-                        android:id="@+id/imgFavourite"
+                    <ImageButton
+                        android:id="@+id/buttonRemove"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_margin="20dp"
-
-                        card_view:srcCompat="@drawable/delete" />
+                        card_view:srcCompat="@drawable/delete"
+                    />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

@@ -3,11 +3,16 @@ package com.example.appbanhang.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.appbanhang.R;
 
@@ -24,16 +29,26 @@ public class CartActivity extends AppCompatActivity {
     CartAdapter adapter;
     ArrayList<Product> ProductArrayList;
     Toolbar toolbar;
+    ImageButton btnDelete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        btnDelete=(ImageButton)findViewById(R.id.buttonRemove);
         anhXa();
         Init();
         actionToolBar();
         SetUp();
         CatchOnItemGirdProduct();
         CatchOnItemGirdProduct2();
+
+        /*btnDelete.setOnClickListener(  new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        //Toast.makeText(CartActivity.this,"button click", Toast.LENGTH_LONG).show();
+                    }
+                });*/
     }
 
     private void CatchOnItemGirdProduct2() {
@@ -67,9 +82,9 @@ public class CartActivity extends AppCompatActivity {
 
     private void Init() {
         ProductArrayList= new ArrayList<>();
-        ProductArrayList.add(new Product("Apple Macbook Air","20000000Đ","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBlWfGxqnpcM7ereO7P25A_F2QXxpcxmsc-w&usqp=CAU"));
-        ProductArrayList.add(new Product("Apple Macbook Air","20000000Đ","https://mobigo.vn/images/seoworld/vivo/part-6/image2.jpg"));
-        ProductArrayList.add(new Product("Apple Macbook Air","40000000Đ","https://media.sohuutritue.net.vn/files/huongmi/2018/02/02/samsung-galaxy-s8-plus-1107.png"));
+        //ProductArrayList.add(new Product("Apple Macbook Air","20000000Đ","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBlWfGxqnpcM7ereO7P25A_F2QXxpcxmsc-w&usqp=CAU"));
+        //ProductArrayList.add(new Product("Apple Macbook Air","20000000Đ","https://mobigo.vn/images/seoworld/vivo/part-6/image2.jpg"));
+        //ProductArrayList.add(new Product("Apple Macbook Air","40000000Đ","https://media.sohuutritue.net.vn/files/huongmi/2018/02/02/samsung-galaxy-s8-plus-1107.png"));
         ProductArrayList.add(new Product("Apple Macbook Air","20000000Đ","https://mobigo.vn/images/seoworld/vivo/part-6/image2.jpg"));
 
         adapter = new CartAdapter(this, 0,ProductArrayList);
