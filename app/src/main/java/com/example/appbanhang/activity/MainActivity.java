@@ -1,15 +1,12 @@
 package com.example.appbanhang.activity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.media.Image;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,11 +25,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.appbanhang.Data.MyService;
 import com.example.appbanhang.R;
 import com.example.appbanhang.adapter.CategoryAdapter;
 import com.example.appbanhang.adapter.ItemNavigationAdapter;
@@ -47,11 +41,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -64,10 +53,11 @@ public class MainActivity extends AppCompatActivity {
     GridView gdvListProduct;
     ProductAdapter adapter;
     ArrayList<Product> ProductArrayList= new ArrayList<>();
-    ArrayList<Product> temp= new ArrayList<>();
     ArrayList<ItemNavigation> arrayList;
     ItemNavigationAdapter naAdapter;
-    String URL = "http://192.168.1.7:8080/server/getUserName.php";
+    ArrayList<Product> temp= new ArrayList<>();
+    IPAddress ipAddress = new IPAddress();
+    String URL = ipAddress.ip+"/server/getProduct.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,41 +177,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void Init()
     {
-        //ProductArrayList= new ArrayList<>();
-        /*ProductArrayList.add(new Product("Apple Macbook Air","40000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-        ProductArrayList.add(new Product("Apple Macbook Air","20000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-        ProductArrayList.add(new Product("Apple Macbook Air","40000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        ProductArrayList.add(new Product("Galaxy S","20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        */
-        /*MyService jsonParser = new MyService();
-        String json = jsonParser.callService(URL, MyService.GET);
-        if (json != null) {
-            try {
-                JSONObject jsonObj = new JSONObject(json);
-                if (jsonObj != null) {
-                    JSONArray platfform = jsonObj.getJSONArray("SP");
-                    for (int i = 0; i < platfform.length(); i++) {
-                        JSONObject obj = (JSONObject) platfform.get(i);
-                        Product pf = new Product(obj.getString("masp"), obj.getString("tensp"),"https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg");
-                        ProductArrayList.add(pf);
-                    }
-                }
-                Log.e("JSON DATA", "RECEIVE data from server!");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else {
-            Log.e("JSON Data", "Didn't receive any data from server!");
-        }*/
-
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
@@ -262,51 +217,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         requestQueue.add(jsonObjectRequest);
-        /*JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(URL, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response)
-            {
-                adapter;
-                //ProductArrayList.add(new Product(Product_Name, Product_Price, Product_Image));
-               if(Jarray!= null)
-                {
-                    for(int i=0 ; i < response.length(); i++)
-                    {
-                        try
-                        {
 
-                            JSONObject jsonObject = response.getJSONObject(i);
-                            String Product_Name= jsonObject.getString("tensp");
-                            String Product_Price= jsonObject.getString("price");
-                            String Product_Image=jsonObject.getString("image");
-                            ProductArrayList.add(new Product(Product_Name, Product_Price, Product_Image));
-
-                        } catch (Exception e) {
-                            Log.e("JSON Data", "Didn't receive any data from server!");
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                else
-                {
-                    Log.e("RESPONSE NULL", "Didn't receive any data from server!");
-                    //ProductArrayList.add(new Product("Product_Name", "Product_Price", "https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-                }
-            }
-        },new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error){
-                        Log.e("ERROR", error.toString());
-                        //Product_Name= response.getString("tensp");
-                        //ProductArrayList.add(new Product(Product_Name, Product_Price, Product_Image));
-                        //ProductArrayList.add(new Product("Product_Name", "Product_Price", "https://bloganchoi.com/wp-content/uploads/2020/09/dell-xps-13-9300.jpg"));
-                    }
-                }
-        );*/
-        /*Log.e("JSON", "AFTER TEMP have : " + String.valueOf(temp.size()));
-        for(int i=0 ; i < temp.size(); i++)
-            ProductArrayList.add(new Product(String.valueOf(ProductArrayList.size()),"20000000Đ","https://cnet3.cbsistatic.com/img/KEM_0EsoAP-9kOds2Fbal9Ww540=/1200x675/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg"));
-        adapter = new ProductAdapter(this, 0,ProductArrayList);*/
     }
     private void SetUp()
     {
@@ -317,7 +228,8 @@ public class MainActivity extends AppCompatActivity {
     {
 
     }
-    private void getDuLieuLoaisp() {
+    private void getDuLieuLoaisp()
+    {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
       //  JsonArrayRequest jsonArrayRequest = new JsonArrayRequest()
     }
