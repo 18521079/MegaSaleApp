@@ -45,12 +45,12 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/Cart_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="7dp"
-            android:text="$2000.34"
             android:textColor="#FF9800"
             android:textSize="24sp"
             android:textStyle="bold" />

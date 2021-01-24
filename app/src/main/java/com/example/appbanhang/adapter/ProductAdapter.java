@@ -1,6 +1,7 @@
 package com.example.appbanhang.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.icu.text.Transliterator;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 //import com.bumptech.glide.Glide;
 import com.bumptech.glide.Glide;
 import com.example.appbanhang.R;
+import com.example.appbanhang.activity.MainActivity;
 import com.example.appbanhang.model.Product;
 
 import java.util.ArrayList;
@@ -61,6 +63,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             ImageView imgProduct = convertView.findViewById(R.id.imgProduct);
             name.setText(product.getName());
             price.setText(product.getPrice());
+            //Glide.with(this.ct).load(product.getImageLink()).into(heart);
             Glide.with(this.ct).load(product.getImageLink()).into(imgProduct);
 
         }

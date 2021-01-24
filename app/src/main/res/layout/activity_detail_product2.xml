@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:divider="@drawable/btnheart"
     android:orientation="vertical"
     android:scrollbarSize="6dp">
 
@@ -34,14 +35,12 @@
             tools:context=".view.DetailsActivity">
 
             <ImageView
-                tools:scaleType="fitXY"
                 android:id="@+id/imageOfProduct"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-
                 android:background="#FFFFFF"
                 app:srcCompat="@drawable/macbook"
-                />
+                tools:scaleType="fitXY" />
 
             <View
                 android:id="@+id/view"
@@ -88,43 +87,83 @@
 
                 <Button
                     android:id="@+id/button2"
-                    android:layout_width="78dp"
-                    android:layout_height="75dp"
-                    android:background="@drawable/circle"
-
+                    android:layout_width="64dp"
+                    android:layout_height="62dp"
+                    android:background="@drawable/bt_cart"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.951"
+                    app:layout_constraintHorizontal_bias="0.953"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.95" />
+                    app:layout_constraintVertical_bias="0.437" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/btAddCart"
                     android:layout_width="27dp"
-                    android:layout_height="29dp"
+                    android:layout_height="27dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:background="@drawable/whitecart"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.885"
+                    app:layout_constraintHorizontal_bias="0.91"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.51" />
+
+                <Button
+                    android:id="@+id/btFavorite"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="64dp"
+                    android:layout_height="62dp"
+                    android:background="@drawable/btnheart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.75"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.51" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName6"
-                    android:layout_width="136dp"
+                    android:id="@+id/textNumber"
+                    android:layout_width="30dp"
                     android:layout_height="48dp"
-                    android:background="@drawable/ooo"
+                    android:background="@color/design_default_color_surface"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="1"
-                    android:textColor="#3F51B5"
+                    android:textColor="#000000"
                     android:textSize="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.22"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.571"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent" />
 
+                <Button
+                    android:id="@+id/btIncrease"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:background="#FFFFFF"
+                    android:text="+"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.32"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintVertical_bias="0.571"
+                    app:layout_constraintVertical_bias="0.271"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btDecrease"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:background="#FFFFFF"
+                    android:text="-"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.32"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.771"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
@@ -208,7 +247,6 @@
 
                     android:layout_marginRight="12dp"
                     android:layout_weight=".6"
-
                     android:gravity="end|center"
                     android:text="3.5/5"
                     android:textColor="#B89D4C"
@@ -216,7 +254,7 @@
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_view"
+                android:id="@+id/my_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:background="#FFFF"
