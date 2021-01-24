@@ -19,6 +19,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.android.volley.Request;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Product> temp= new ArrayList<>();
     IPAddress ipAddress = new IPAddress();
     String URL = ipAddress.ip+"/server/getProduct.php";
+    public static String userName;
+    public static String maGH;
+    public static String maSP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,21 +70,23 @@ public class MainActivity extends AppCompatActivity {
         actionToolBar();
         actionViewLipper();
         actionMenu();
-        getDuLieuLoaisp();
         Init();
         SetUp();
-        SetClick();
         CatchOnItemListView();
         CatchOnItemGirdProduct();
-
 
     }
 
     private void CatchOnItemGirdProduct() {
         gdvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id)
+            {
+
                 Intent phoneIntent = new Intent(getApplicationContext(), DetailProductActivity.class);
+                phoneIntent.putExtra("name",temp.get(i).getName());
+                phoneIntent.putExtra("price",temp.get(i).getPrice());
+                phoneIntent.putExtra("image",temp.get(i).getImageLink());
                 startActivity(phoneIntent);
             }
         });
@@ -223,15 +229,6 @@ public class MainActivity extends AppCompatActivity {
     {
         gdvListProduct.setAdapter(adapter);
 
-    }
-    private void SetClick()
-    {
-
-    }
-    private void getDuLieuLoaisp()
-    {
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-      //  JsonArrayRequest jsonArrayRequest = new JsonArrayRequest()
     }
 
     private void actionViewLipper() {

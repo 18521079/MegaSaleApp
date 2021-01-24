@@ -51,9 +51,12 @@ public class SignUpActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String ServerResponse) {
+                    public void onResponse(String ServerResponse)
+                    {
 
                         Toast.makeText(SignUpActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                        Intent AccessoriesIntent = new Intent(SignUpActivity.this, LoginActivity.class);
+                        startActivity(AccessoriesIntent);
                     }
                 },
                 new Response.ErrorListener() {

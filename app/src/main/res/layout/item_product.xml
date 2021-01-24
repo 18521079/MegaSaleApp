@@ -24,12 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imgFavourite"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
-                app:srcCompat="@drawable/emptyheart" />
+
 
         <ImageView
             android:id="@+id/imgProduct"
@@ -87,7 +82,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
+                <Button
                     android:id="@+id/addToCart"
                     android:layout_width="136dp"
                     android:layout_height="match_parent"

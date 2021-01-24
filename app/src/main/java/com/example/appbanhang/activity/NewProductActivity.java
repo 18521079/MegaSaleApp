@@ -34,7 +34,8 @@ public class NewProductActivity extends AppCompatActivity {
     ArrayList<Product> ProductArrayList;
     Toolbar toolbar;
     ArrayList<Product> temp= new ArrayList<>();
-    String URL = "http://192.168.1.7:8080/server/getProduct.php";
+    IPAddress ipAddress = new IPAddress();
+    String URL = ipAddress.ip+"/server/getProduct.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
