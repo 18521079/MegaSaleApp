@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Product> temp= new ArrayList<>();
     IPAddress ipAddress = new IPAddress();
     String URL = ipAddress.ip+"/server/getProduct.php";
-    public static String userName;
+    public static String userName, name, address, sdt;
     public static String maGH;
     public static String maSP;
     @Override
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 phoneIntent.putExtra("name",temp.get(i).getName());
                 phoneIntent.putExtra("price",temp.get(i).getPrice());
                 phoneIntent.putExtra("image",temp.get(i).getImageLink());
+                phoneIntent.putExtra("masp",temp.get(i).masp);
                 startActivity(phoneIntent);
             }
         });
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new ItemNavigation( "New Product" , R.drawable.icon_new_product));
         arrayList.add(new ItemNavigation( "My Account" , R.drawable.icon_account));
         arrayList.add(new ItemNavigation( "Wish List" , R.drawable.icon_heart));
-        arrayList.add(new ItemNavigation( "Category" , R.drawable.icon_category));
+        //arrayList.add(new ItemNavigation( "Category" , R.drawable.icon_category));
         naAdapter= new ItemNavigationAdapter(this, R.layout.item_navigation, arrayList);
         listView.setAdapter(naAdapter);
     }
@@ -172,10 +173,25 @@ public class MainActivity extends AppCompatActivity {
             Intent login = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(login);
         }
-        else
+        else if(id==R.id.app_signup)
         {
             Intent signup = new Intent(MainActivity.this, SignUpActivity.class);
             startActivity(signup);
+        }
+        else
+        {
+            if(MainActivity.userName==null)
+            {
+                Toast.makeText(MainActivity.this,"You are not login yet", Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                MainActivity.userName=null;
+                MainActivity.maGH=null;
+                MainActivity.maSP=null;
+                Toast.makeText(MainActivity.this,"Log Out Successfully", Toast.LENGTH_LONG).show();
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -199,7 +215,8 @@ public class MainActivity extends AppCompatActivity {
                                 String Product_Name= jsonObject.getString("tensp");
                                 String Product_Price= jsonObject.getString("price");
                                 String Product_Image=jsonObject.getString("image");
-                                temp.add(new Product(Product_Name, Product_Price, Product_Image));
+                                String Product_ID= jsonObject.getString("id");
+                                temp.add(new Product(Product_ID,Product_Name, Product_Price, Product_Image));
 
                             }
                             adapter = new ProductAdapter(MainActivity.this, 0,temp);

@@ -1,11 +1,12 @@
 package com.example.appbanhang.model;
 
 public class Product {
-    private String name, price, imageLink;
+    public  String name, price, imageLink, masp;
 
     public Product(){}
 
-    public Product(String name, String price, String imageLink) {
+    public Product(String masp,String name, String price, String imageLink) {
+        this.masp = masp;
         this.name = name;
         this.price = price;
         this.imageLink = imageLink;

@@ -77,7 +77,8 @@ public class WishListActivity extends AppCompatActivity {
                             String Product_Name= jsonObject.getString("tensp");
                             String Product_Price= jsonObject.getString("price");
                             String Product_Image=jsonObject.getString("image");
-                            ProductArrayList.add(new Product(Product_Name, Product_Price, Product_Image));
+                            String id = jsonObject.getString("masp");
+                            ProductArrayList.add(new Product(id,Product_Name, Product_Price, Product_Image));
                         }
                         adapter = new WishListAdapter(WishListActivity.this, 0,ProductArrayList);
                         adapter.notifyDataSetChanged();

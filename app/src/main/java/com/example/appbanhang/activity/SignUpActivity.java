@@ -24,7 +24,8 @@ import java.util.Map;
 public class SignUpActivity extends AppCompatActivity {
     Button mButton;
     IPAddress ipAddress = new IPAddress();
-    String URL = ipAddress.ip+"/server/test1.php";
+    String URL = ipAddress.ip+"/server/insertUser.php";
+    String URLMakeCart = ipAddress.ip+"/server/insertCart.php";
     EditText mEditUser, mEditPass, mEditName, mEditAddress, mEditSDT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class SignUpActivity extends AppCompatActivity {
         mEditUser   = findViewById(R.id.editTextUser);
         mEditPass   = findViewById(R.id.editTextPass);
         mEditName   = findViewById(R.id.editTextName);
-        //mEditAddress   = findViewById(R.id.editTextTextPersonName4);
-        //mEditSDT   = findViewById(R.id.editTextTextPersonName4);
+        mEditAddress   = findViewById(R.id.editTextAddress);
+        mEditSDT   = findViewById(R.id.editTextPhone);
         mButton.setOnClickListener(
                 new View.OnClickListener()
                 {
@@ -54,16 +55,12 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onResponse(String ServerResponse)
                     {
 
-                        Toast.makeText(SignUpActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
-                        Intent AccessoriesIntent = new Intent(SignUpActivity.this, LoginActivity.class);
-                        startActivity(AccessoriesIntent);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-
-                        Toast.makeText(SignUpActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(SignUpActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -76,13 +73,47 @@ public class SignUpActivity extends AppCompatActivity {
                 params.put("username", mEditUser.getText().toString());
                 params.put("password", mEditPass.getText().toString());
                 params.put("name", mEditName.getText().toString());
-                params.put("diachi", "a");
-                params.put("sdt", "a");
+                params.put("diachi", mEditAddress.getText().toString());
+                params.put("sdt", mEditSDT.getText().toString());
+
+                return params;
+            }
+
+        };
+
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, URLMakeCart,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String ServerResponse)
+                    {
+                        Toast.makeText(SignUpActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                        Intent AccessoriesIntent = new Intent(SignUpActivity.this, LoginActivity.class);
+                        startActivity(AccessoriesIntent);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(SignUpActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+
+                // Creating Map String Params.
+                Map<String, String> params = new HashMap<String, String>();
+
+                // Adding All values to Params.
+                params.put("username", mEditUser.getText().toString());
+                params.put("magh", mEditUser.getText().toString()+"01");
+                params.put("tongtien", "0");
+
                 return params;
             }
 
         };
         RequestQueue requestQueue = Volley.newRequestQueue(SignUpActivity.this);
         requestQueue.add(stringRequest);
+        requestQueue.add(stringRequest1);
     }
 }

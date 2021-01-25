@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     public ArrayList<User> temp=new  ArrayList<>();
     IPAddress ipAddress = new IPAddress();
     String URL = ipAddress.ip+"/server/getUser.php";
+    String URLFull = ipAddress.ip+"/server/getFullUser.php";
     Button   mButton;
     EditText mEditUser, mEditPass;
     String userName,password;
@@ -75,10 +76,50 @@ public class LoginActivity extends AppCompatActivity {
                     if(jsonarray.length()>0)
                     {
                         MainActivity.userName= userName;
-                        Toast.makeText(LoginActivity.this,"Hello "+MainActivity.userName, Toast.LENGTH_LONG).show();
+                        JSONObject jsonObject = jsonarray.getJSONObject(0);
+                        MainActivity.maGH= jsonObject.getString("maGh");
+
+                    }
+                    else Toast.makeText(LoginActivity.this,"User is wrong" , Toast.LENGTH_LONG).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(LoginActivity.this, "Something went wrong",Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parameters = new HashMap<String, String>();
+                parameters.put("TenDangNhap", mEditUser.getText().toString());
+                parameters.put("MatKhau", mEditPass.getText().toString());
+                return parameters;
+            }
+        };
+
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, URLFull, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonobject = new JSONObject(response);
+                    JSONArray jsonarray = jsonobject.getJSONArray("KhachHang");
+                    if(jsonarray.length()>0)
+                    {
+                        MainActivity.userName= userName;
+                        JSONObject jsonObject = jsonarray.getJSONObject(0);
+                        MainActivity.name= jsonObject.getString("Hoten");
+                        MainActivity.address= jsonObject.getString("diachi");
+                        MainActivity.sdt= jsonObject.getString("sdt");
+                        Toast.makeText(LoginActivity.this,"Hello "+MainActivity.userName , Toast.LENGTH_LONG).show();
                         Intent AccessoriesIntent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(AccessoriesIntent);
                     }
+                    else Toast.makeText(LoginActivity.this,"User is wrong" , Toast.LENGTH_LONG).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -100,5 +141,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
         requestQueue.add(stringRequest);
+        requestQueue.add(stringRequest1);
     }
 }
