@@ -14,6 +14,11 @@
         android:title="Log In"
         app:actionViewClass="android.widget.SearchView" />
     <item
+        android:id="@+id/app_signup"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Sign Up"
+        app:actionViewClass="android.widget.SearchView" />
+    <item
         android:id="@+id/app_logout"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Log Out"

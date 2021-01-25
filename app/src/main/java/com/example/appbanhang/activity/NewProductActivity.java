@@ -79,7 +79,8 @@ public class NewProductActivity extends AppCompatActivity {
                                 String Product_Name= jsonObject.getString("tensp");
                                 String Product_Price= jsonObject.getString("price");
                                 String Product_Image=jsonObject.getString("image");
-                                temp.add(new Product(Product_Name, Product_Price, Product_Image));
+                                String Product_ID= jsonObject.getString("id");
+                                temp.add(new Product(Product_ID,Product_Name, Product_Price, Product_Image));
                             }
                             adapter = new ProductAdapter(NewProductActivity.this, 0,temp);
                             adapter.notifyDataSetChanged();

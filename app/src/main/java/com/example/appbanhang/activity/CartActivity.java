@@ -53,22 +53,12 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        btnDelete=(ImageButton)findViewById(R.id.buttonRemove);
+        //btnDelete=findViewById(R.id.buttonRemove);
         price= findViewById(R.id.Cart_price);
         anhXa();
         Init();
         actionToolBar();
         SetUp();
-        CatchOnItemGirdProduct();
-        CatchOnItemGirdProduct2();
-
-        /*btnDelete.setOnClickListener(  new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-                        //Toast.makeText(CartActivity.this,"button click", Toast.LENGTH_LONG).show();
-                    }
-                });*/
     }
 
     private void CatchOnItemGirdProduct2() {
@@ -84,9 +74,9 @@ public class CartActivity extends AppCompatActivity {
     private void CatchOnItemGirdProduct() {
         gdvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Intent phoneIntent = new Intent(getApplicationContext(), DetailProductActivity.class);
-                startActivity(phoneIntent);
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id)
+            {
+                //adapter.getView(i,)
             }
         });
     }
@@ -112,17 +102,21 @@ public class CartActivity extends AppCompatActivity {
                     JSONArray jsonarray = jsonobject.getJSONArray("CTGH");
                     if(jsonarray.length()>0)
                     {
+
                         for(int i=0 ; i < jsonarray.length(); i++)
                         {
                             JSONObject jsonObject = jsonarray.getJSONObject(i);
                             String Product_Name= jsonObject.getString("tensp");
                             String Product_Price= jsonObject.getString("price");
                             String Product_Image=jsonObject.getString("image");
-                            ProductArrayList.add(new Product(Product_Name, Product_Price, Product_Image));
+                            MainActivity.maGH= jsonObject.getString("maGH");
+                            String id= jsonObject.getString("masp");
+                            ProductArrayList.add(new Product(id,Product_Name, Product_Price, Product_Image));
                         }
                         adapter = new CartAdapter(CartActivity.this, 0,ProductArrayList);
                         adapter.notifyDataSetChanged();
                         gdvListProduct.setAdapter(adapter);
+                       // Toast.makeText(CartActivity.this, "magh " +MainActivity.maGH,Toast.LENGTH_LONG).show();
                     }
                     else
                     {
