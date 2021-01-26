@@ -1,7 +1,7 @@
 package com.example.appbanhang.model;
 
 public class Product {
-    public  String name, price, imageLink, masp;
+    public  String name, price, imageLink, masp, soluong;
 
     public Product(){}
 

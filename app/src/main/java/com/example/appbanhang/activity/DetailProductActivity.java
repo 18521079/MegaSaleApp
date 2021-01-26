@@ -48,6 +48,9 @@ public class DetailProductActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
         id= intent.getStringExtra("masp");
+        EditText t= findViewById(R.id.textNumber);
+        number=t.getText().toString();
+
         String price = intent.getStringExtra("price");
         price= price+" $";
         String image = intent.getStringExtra("image");
@@ -56,8 +59,7 @@ public class DetailProductActivity extends AppCompatActivity {
         ImageView imgProduct = findViewById(R.id.imageOfProduct);
         nameText.setText(name);
         priceText.setText(price);
-        EditText t= findViewById(R.id.textNumber);
-        number=t.getText().toString();
+
         Glide.with(this).load(image).into(imgProduct);
         btAddToCart= findViewById(R.id.btAddCart);
         btAddToCart.setOnClickListener(
