@@ -15,11 +15,29 @@
     * Tác giả
     * Giấy phép
 # *`Chức năng`*
-    * Đăng kí/Đăng nhập
-    * Xem danh sách sản phẩm
-    * Xem chi tiết sản phẩm
-    * Đặt hàng
-    * Thêm sản phẩm yêu thích
+
+#    * Tab Menu
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/TabMenu.jpg?raw=true)
+     
+#    * Đăng kí/Đăng nhập
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/Login.jpg?raw=true)
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/SignUp.jpg?raw=true)
+   
+#    * Xem thông tin cá nhân
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/Account.jpg?raw=true)
+   
+#    * Xem danh sách sản phẩm
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/Main.jpg?raw=true)
+     
+#    * Xem chi tiết sản phẩm
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/Detail1.jpg?raw=true)
+    
+#    * Đặt hàng
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/Giỏ%20hàng.jpg?raw=true)
+    
+#    * Thêm sản phẩm yêu thích
+   ![alt text](https://github.com/18521079/MegaSaleApp/blob/master/Images/SanPhamyeuThich.jpg?raw=true)
+    
 # *`Yêu cầu thiết bị`*
         *    Hệ điều hành: android
         *    Phiên bản: 4.0 về sau
