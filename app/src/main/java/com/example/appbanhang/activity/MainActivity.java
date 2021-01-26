@@ -22,11 +22,13 @@ import android.widget.SearchView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.appbanhang.R;
 import com.example.appbanhang.adapter.CategoryAdapter;
@@ -43,6 +45,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     ListView listView;
@@ -59,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Product> temp= new ArrayList<>();
     IPAddress ipAddress = new IPAddress();
     String URL = ipAddress.ip+"/server/getProduct.php";
+
     public static String userName, name, address, sdt;
     public static String maGH;
     public static String maSP;

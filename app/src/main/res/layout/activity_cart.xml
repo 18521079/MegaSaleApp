@@ -58,13 +58,14 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/buttonOrder"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Payment"
+        android:text="Order"
         android:textColor="#187EBC"
-        android:textSize="20sp"></Button>
+        android:textSize="20sp" />
 
 
 </LinearLayout>
